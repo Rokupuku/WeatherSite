@@ -1,0 +1,53 @@
+/* CSS Reset (필요에 따라 추가) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 기본 body 스타일 */
+body {
+    font-family: "Limelight", serif;
+    background: linear-gradient(to left bottom, lightCyan, skyblue, royalblue);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 7s ease infinite;
+    min-height: 100vh;
+}
+
+/* 간단한 배경 애니메이션 */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 검색 영역 스타일 */
+.search_container {
+    display: flex;
+    justify-content: center;
+    padding: 35px;
+}
+
+.search_input {
+    padding: 20px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 450px;
+    outline: none;
+}
+
+.search_button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+    background-color: black;
+    cursor: pointer;
+}
+
+.search_button:hover {
+    background-color: rgb(118, 125, 146);
+}
+
+/* (추가적인 스타일들은 필요에 따라 작성) */ 
