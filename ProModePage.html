@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.24.1/antd.min.css" />
     <title>Pro Mode</title>
     <style>
+        @keyframes lightning {
+            0%, 100% {
+                background-color: #000;
+            }
+            50% {
+                background-color: #333;
+            }
+        }
+
         html, body {
             height: 100%;
             margin: 0;
@@ -20,19 +29,19 @@
             align-items: center;
             text-align: center;
             color: #fff;
-            transition: background 0.5s ease;
+            animation: lightning 3s infinite;
         }
         .content {
             max-width: 800px;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.9);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1), 0 -4px 8px rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .content:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 -8px 16px rgba(255, 255, 255, 0.2);
         }
         h1 {
             font-weight: 700;
@@ -59,10 +68,12 @@
         .form-container input {
             padding: 10px;
             font-size: 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #444;
             border-radius: 5px;
             width: 100%;
             box-sizing: border-box;
+            background-color: #222;
+            color: #fff;
         }
         .login-button, .signup-button, .exit_mode_button {
             padding: 10px 20px;
@@ -70,27 +81,13 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            color: white;
+            color: #fff;
             transition: background-color 0.3s ease;
             margin-top: 10px;
+            background-color: #333;
         }
-        .login-button {
-            background-color: #3498db;
-        }
-        .login-button:hover {
-            background-color: #2980b9;
-        }
-        .signup-button {
-            background-color: #2ecc71;
-        }
-        .signup-button:hover {
-            background-color: #27ae60;
-        }
-        .exit_mode_button {
-            background-color: #e74c3c;
-        }
-        .exit_mode_button:hover {
-            background-color: #c0392b;
+        .login-button:hover, .signup-button:hover, .exit_mode_button:hover {
+            background-color: #555;
         }
         .toggle-link {
             color: #3498db;
