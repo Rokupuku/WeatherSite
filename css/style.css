@@ -66,4 +66,10 @@ body {
     gap: 100px;
 }
 
-/* (추가적인 스타일들은 필요에 따라 작성) */ 
+/* (추가적인 스타일들은 필요에 따라 작성) */
+
+.introduce_link {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+} 
