@@ -12,7 +12,6 @@
         html, body {
             height: 100%;
             margin: 0;
-            background: linear-gradient(to left bottom, lightCyan, skyblue, royalblue);
             background-size: 400% 400%;
             animation: backgroundAnimation 7s ease infinite;
             font-family: "Limelight", serif;
@@ -108,6 +107,7 @@
             display: flex;
             justify-content: center;
             margin-top: 50px;
+            text-align: center;
         }
         .icon_figures_container {
             display: flex;
@@ -129,6 +129,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
+            text-align: center;
         }
         .temperature_container p {
             display: flex;
@@ -157,18 +158,25 @@
             justify-content: center;
             gap: 100px;
         }
+        .centered-flex {
+            display: flex;
+            justify-content: center;
+        }
+        .text-center {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <header> <!--헤더 영역 (제목, 검색 영역)-->
             <div class="local_name">
-                <p style="font-size: 60px;">Seoul</p>
+                <p id="location_name" style="font-size: 60px;">Seoul</p>
             </div>
             <div>
                 <nav class="search_container">
-                    <input type="text" class="search_input" placeholder="Search">
-                    <button type="submit" class="search_button">
+                    <input type="text" id="search_input" class="search_input" placeholder="Search">
+                    <button type="button" id="search_button" class="search_button">
                         <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                     </button>
                 </nav>
@@ -179,84 +187,84 @@
             <div class="current_temperature_container">
                 <div class="current_temperature_figure_container">
                     <p style="font-size: 35px;">Current Temperature</p>
-                    <p class="current_temperature" style="font-size: 100px;">22°C</p>
+                    <p id="current_temperature" class="current_temperature" style="font-size: 100px;">--°C</p>
                 </div>
             </div>
             <div class="icon_figures_container">
                 <div class="current_weather_icon_temperature_container">
                     <div class="current_weather_icon">
-                        <i class="fa-sharp fa-solid fa-sun fa-7x"></i>
+                        <i id="current_weather_icon" class="fa-solid fa-sun fa-7x"></i>
                         <div class="temperature_container">
-                            <p class="highest temperature" style="color: white;">25°C</p>
-                            <p class="lowest temperature" style="color: rgb(99, 96, 96)">15°C</p>
+                            <p id="highest_temperature" style="color: white;">--°C</p>
+                            <p id="lowest_temperature" style="color: rgb(99, 96, 96)">--°C</p>
                         </div>
                     </div>
                 </div>
                 <div class="figures_container">
                     <div class="humidity_container">
                         <p>Humidity</p>
-                        <p class="humidity">50%</p>
+                        <p id="humidity">--%</p>
                     </div>
                     <div class="rainfall_container">
                         <p>Rainfall</p>
-                        <p class="rainfall">0mm</p>
+                        <p id="rainfall">--mm</p>
                     </div>
                 </div>
             </div>
             <div class="five_day_forecast_container">
                 <div class="one_day">
-                    <h1>1 day</h1>
+                    <h1 id="day1_title">1 day</h1>
                     <hr>
                     <div class="weather_icon">
-                        <i class="fa-solid fa-sun fa-5x"></i>
+                        <i id="day1_icon" class="fa-solid fa-sun fa-5x"></i>
                     </div>
                     <div class="weather_temperature">
-                        <p class="one_day_highest_temperature" style="font-size: 30px; color: white">25°C</p>
-                        <p class="one_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">15°C</p>
+                        <p id="day1_highest_temperature" style="font-size: 30px; color: white">--°C</p>
+                        <p id="day1_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">--°C</p>
                     </div>
                 </div>
                 <div class="two_day">
-                    <h1>2 day</h1>
+                    <h1 id="day2_title">2 day</h1>
                     <hr>
                     <div class="weather_icon">
-                        <i class="fa-solid fa-cloud-sun fa-5x"></i>
+                        <i id="day2_icon" class="fa-solid fa-sun fa-5x"></i>
                     </div>
                     <div class="weather_temperature">
-                        <p class="two_day_highest_temperature" style="font-size: 30px; color: white">15°C</p>
-                        <p class="two_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">8°C</p>
+                        <p id="day2_highest_temperature" style="font-size: 30px; color: white">--°C</p>
+                        <p id="day2_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">--°C</p>
                     </div>
                 </div>
                 <div class="three_day">
-                    <h1>3 day</h1>
+                    <h1 id="day3_title">3 day</h1>
                     <hr>
                     <div class="weather_icon">
-                        <i class="fa-solid fa-cloud-sun fa-5x"></i>
+                        <i id="day3_icon" class="fa-solid fa-sun fa-5x"></i>
                     </div>
                     <div class="weather_temperature">
-                        <p class="three_day_highest_temperature" style="font-size: 30px; color: white">14°C</p>
-                        <p class="three_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">7°C</p>
+                        <p id="day3_highest_temperature" style="font-size: 30px; color: white">--°C</p>
+                        <p id="day3_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">--°C</p>
                     </div>
                 </div>
                 <div class="four_day">
-                    <h1>4 day</h1>
+                    <h1 id="day4_title">4 day</h1>
                     <hr>
                     <div class="weather_icon">
-                        <i class="fa-solid fa-cloud-showers-heavy fa-5x"></i>
+                        <i id="day4_icon" class="fa-solid fa-sun fa-5x"></i>
                     </div>
                     <div class="weather_temperature">
-                        <p class="four_day_highest_temperature" style="font-size: 30px; color: white">10°C</p>
-                        <p class="four_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">6°C</p>
+                        <p id="day4_highest_temperature" style="font-size: 30px; color: white">--°C</p>
+                        <p id="day4_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">--°C</p>
                     </div>
                 </div>
                 <div class="five_day">
-                    <h1>5 day</h1>
+                    <h1 id="day5_title">5 day</h1>
                     <hr>
                     <div class="weather_icon">
-                        <i class="fa-solid fa-snowflake fa-5x"></i>
+                        <i id="day5_icon" class="fa-solid fa-sun fa-5x"></i>
                     </div>
                     <div class="weather_temperature">
-                        <p class="five_day_highest_temperature" style="font-size: 30px; color: white">0°C</p>
-                        <p class="five_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">-3°C</p>
+                        <p id="day5_highest_temperature" style="font-size: 30px; color: white">--°C</p>
+                        <p id="day5_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">--°C</p>
                     </div>
                 </div>
             </div>
@@ -283,7 +291,141 @@
         </div>
     </footer>
     <script>
-       
+        const apiKey = '202d8cdd9283b8e5d9d03a377fb357ad'; // OpenWeatherMap API 키를 여기에 입력하세요.
+
+        function updateElementText(id, text) {
+            document.getElementById(id).textContent = text;
+        }
+
+        function setBackground(weatherMain) {
+            let background;
+            switch (weatherMain) {
+                case 'Clear':
+                    background = 'linear-gradient(to left bottom, lightCyan, skyblue, royalblue)';
+                    break;
+                case 'Clouds':
+                    background = 'linear-gradient(to left bottom, lightgray, gray, darkgray)';
+                    break;
+                case 'Rain':
+                case 'Drizzle':
+                    background = 'linear-gradient(to left bottom, lightblue, blue, darkblue)';
+                    break;
+                case 'Thunderstorm':
+                    background = 'linear-gradient(to left bottom, darkgray, gray, black)';
+                    break;
+                case 'Snow':
+                    background = 'linear-gradient(to left bottom, white, lightgray, gray)';
+                    break;
+                default:
+                    background = 'linear-gradient(to left bottom, lightCyan, skyblue, royalblue)';
+            }
+            document.body.style.backgroundImage = background;
+        }
+
+        function setWeatherIcon(weatherMain, elementId) {
+            let iconClass;
+            switch (weatherMain) {
+                case 'Clear':
+                    iconClass = 'fa-sun';
+                    break;
+                case 'Clouds':
+                    iconClass = 'fa-cloud';
+                    break;
+                case 'Rain':
+                    iconClass = 'fa-cloud-showers-heavy';
+                    break;
+                case 'Drizzle':
+                    iconClass = 'fa-cloud-rain';
+                    break;
+                case 'Thunderstorm':
+                    iconClass = 'fa-bolt';
+                    break;
+                case 'Snow':
+                    iconClass = 'fa-snowflake';
+                    break;
+                default:
+                    iconClass = 'fa-question';
+            }
+            document.getElementById(elementId).className = `fa-solid ${iconClass} fa-5x`;
+        }
+
+        function fetchWeatherData(city) {
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+            const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const temperature = data.main.temp;
+                    const highestTemperature = data.main.temp_max;
+                    const lowestTemperature = data.main.temp_min;
+                    const humidity = data.main.humidity;
+                    const weatherMain = data.weather[0].main;
+
+                    updateElementText('location_name', city);
+                    updateElementText('current_temperature', `${temperature}°C`);
+                    updateElementText('highest_temperature', `${highestTemperature}°C`);
+                    updateElementText('lowest_temperature', `${lowestTemperature}°C`);
+                    updateElementText('humidity', `${humidity}%`);
+
+                    // 날씨에 따라 배경색 변경
+                    setBackground(weatherMain);
+
+                    // 날씨에 따라 아이콘 변경
+                    setWeatherIcon(weatherMain, 'current_weather_icon');
+                })
+                .catch(error => console.error('Error fetching weather data:', error));
+
+            fetch(forecastUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const dailyData = {};
+
+                    data.list.forEach(reading => {
+                        const date = reading.dt_txt.split(' ')[0];
+                        if (!dailyData[date]) {
+                            dailyData[date] = {
+                                temp_max: reading.main.temp_max,
+                                temp_min: reading.main.temp_min,
+                                weatherMain: reading.weather[0].main
+                            };
+                        } else {
+                            dailyData[date].temp_max = Math.max(dailyData[date].temp_max, reading.main.temp_max);
+                            dailyData[date].temp_min = Math.min(dailyData[date].temp_min, reading.main.temp_min);
+                        }
+                    });
+
+                    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+                    Object.keys(dailyData).slice(0, 5).forEach((date, index) => {
+                        const day = index + 1;
+                        const highestTemperature = dailyData[date].temp_max;
+                        const lowestTemperature = dailyData[date].temp_min;
+                        const weatherMain = dailyData[date].weatherMain;
+
+                        const dateObj = new Date(date);
+                        const dayOfWeek = daysOfWeek[dateObj.getUTCDay()];
+
+                        updateElementText(`day${day}_title`, dayOfWeek);
+                        updateElementText(`day${day}_highest_temperature`, `${highestTemperature}°C`);
+                        updateElementText(`day${day}_lowest_temperature`, `${lowestTemperature}°C`);
+
+                        // 날씨에 따라 아이콘 변경
+                        setWeatherIcon(weatherMain, `day${day}_icon`);
+                    });
+                })
+                .catch(error => console.error('Error fetching forecast data:', error));
+        }
+
+        document.getElementById('search_button').addEventListener('click', () => {
+            const city = document.getElementById('search_input').value;
+            if (city) {
+                fetchWeatherData(city);
+            }
+        });
+
+        // 초기 데이터 로드
+        fetchWeatherData('Seoul');
     </script>
 </body>
 </html>
