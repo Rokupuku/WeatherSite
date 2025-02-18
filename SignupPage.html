@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Signup Page</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(to right, #ffffff, #f0f0f0);
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #2c3e50;
+        }
+        .content {
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .signup-form input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .signup-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .signup-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Signup Page</h1>
+        <form class="signup-form" onsubmit="return handleSignup(event)">
+            <input type="text" id="new-username" placeholder="New Username" required>
+            <input type="password" id="new-password" placeholder="New Password" required>
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
+    </div>
+    <script>
+        function handleSignup(event) {
+            event.preventDefault();
+            const username = document.getElementById('new-username').value;
+            const password = document.getElementById('new-password').value;
+            
+            // 간단한 로컬 저장소에 사용자 정보 저장 (테스트 용도)
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            
+            alert('회원가입 성공! 로그인 페이지로 이동합니다.');
+            location.href = 'ProModePage.html';
+        }
+    </script>
+</body>
+</html> 
