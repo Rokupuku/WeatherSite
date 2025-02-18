@@ -46,6 +46,8 @@
         .local_name {
             display: flex;
             justify-content: center;
+            position: relative;
+            top: 50px;
         }
         hr {
             height: 3px;
@@ -76,12 +78,11 @@
         .search_button:hover {
             background-color: rgb(118, 125, 146);
         }
-        .icon_figures_container {
+        .current_temperature_container {
             display: flex;
             justify-content: center;
-            gap: 90px;
         }
-        .current_temperature_container {
+        .current_temperature_figure_container p {
             display: flex;
             justify-content: center;
         }
@@ -94,15 +95,21 @@
             justify-content: center;
             margin-top: 50px;
         }
-        .current_temperature_figure_container p {
+        .icon_figures_container {
             display: flex;
             justify-content: center;
+            gap: 90px;
         }
         .figures_container {
             display: flex;
             justify-content: center;
             margin-top: 50px;
             gap: 30px;
+        }
+        .figures_container p {
+            display: flex;
+            justify-content: center;
+            font-size: 25px;
         }
         .tempeture_container {
             display: flex;
@@ -114,15 +121,9 @@
             justify-content: center;
             font-size: 25px;
         }
-        .figures_container p {
-            display: flex;
-            justify-content: center;
-            font-size: 25px;
-        }
         .five_day_forecast_container {
             display: flex;
             justify-content: center;
-            margin-top: 50px;
             gap: 100px;
         }
         .weather_tempeture {
@@ -146,7 +147,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <header> <!------------------------------------헤더 영역 (제목, 검색 영역)------------------------------------>
+        <header>
             <div class="local_name">
                 <p style="font-size: 60px;">Seoul</p>
             </div>
@@ -157,7 +158,7 @@
                 </nav>
             </div>
         </header>
-        <main> <!------------------------------------메인 영역 (본문 영역)------------------------------------>
+        <main>
             <div class="current_temperature_container">
                 <div class="current_temperature_figure_container">
                     <p style="font-size: 35px;">Current Temperature</p>
@@ -244,7 +245,7 @@
             </div>
         </main>
     </div>
-    <footer> <!------------------------------------푸터 영역 (마무리 영역)------------------------------------>
+    <footer>
         <hr width="500px">
         <div class="introduce_link">
             <div class="instagram_link">
