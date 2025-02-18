@@ -19,6 +19,15 @@
             }
         }
 
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
         html, body {
             height: 100%;
             margin: 0;
@@ -30,8 +39,26 @@
             text-align: center;
             color: #fff;
             animation: lightning 3s infinite;
+            overflow: hidden;
+        }
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
         }
         .content {
+            position: relative;
+            z-index: 1;
             max-width: 800px;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.9);
@@ -74,6 +101,7 @@
             box-sizing: border-box;
             background-color: #222;
             color: #fff;
+            margin-bottom: 15px;
         }
         .login-button, .signup-button, .exit_mode_button {
             padding: 10px 20px;
@@ -84,10 +112,10 @@
             color: #fff;
             transition: background-color 0.3s ease;
             margin-top: 10px;
-            background-color: #333;
+            background-color: #444;
         }
         .login-button:hover, .signup-button:hover, .exit_mode_button:hover {
-            background-color: #555;
+            background-color: #666;
         }
         .toggle-link {
             color: #3498db;
@@ -99,8 +127,9 @@
     </style>
 </head>
 <body>
+    <div class="stars" id="stars"></div>
     <div class="content">
-        <h1>Pro Mode Page</h1>
+        <h1>Pro Mode</h1>
         <p>Hello, Pro User!</p>
         <button class="login-button" onclick="showLoginForm()">Login</button>
         <form class="form-container login-form" onsubmit="return handleLogin(event)">
@@ -118,6 +147,18 @@
         <button class="exit_mode_button" onclick="location.href='index.html'">Exit Mode</button>
     </div>
     <script>
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.animationDuration = Math.random() * 2 + 1 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
         function showLoginForm() {
             const loginForm = document.querySelector('.login-form');
             const signupForm = document.querySelector('.signup-form');
@@ -161,6 +202,8 @@
             alert('회원가입 성공! 로그인 페이지로 이동합니다.');
             showLoginForm();
         }
+
+        document.addEventListener('DOMContentLoaded', createStars);
     </script>
 </body>
 </html>
