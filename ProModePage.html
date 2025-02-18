@@ -10,21 +10,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.24.1/antd.min.css" />
     <title>Pro Mode</title>
     <style>
-        @keyframes lightning {
-            0%, 100% {
-                background-color: #000;
-            }
-            50% {
-                background-color: #333;
-            }
-        }
-
         @keyframes twinkle {
             0%, 100% {
                 opacity: 0.8;
             }
             50% {
                 opacity: 1;
+            }
+        }
+
+        @keyframes drift {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-100px);
             }
         }
 
@@ -38,8 +38,8 @@
             align-items: center;
             text-align: center;
             color: #fff;
-            animation: lightning 3s infinite;
             overflow: hidden;
+            animation: drift 10s linear infinite;
         }
         .stars {
             position: absolute;
@@ -61,14 +61,14 @@
             z-index: 1;
             max-width: 800px;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.85);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1), 0 -4px 8px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .content:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 -8px 16px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
         }
         h1 {
             font-weight: 700;
