@@ -1,3 +1,4 @@
+@ -1,272 +1,272 @@
 <!DOCTYPE html>
 <html lang = "ko">
 <head>
@@ -13,7 +14,7 @@
             height: 100%;
             margin: 0;
             background: linear-gradient(to left bottom, lightCyan, skyblue, royalblue);
-            background-size: 400% 400%;
+            background-size: 200% 200%;
             animation: backgroundAnimation 7s ease infinite;
             font-family: "Limelight", serif;
             font-weight: 100;
@@ -46,8 +47,6 @@
         .local_name {
             display: flex;
             justify-content: center;
-            position: relative;
-            top: 50px;
         }
         hr {
             height: 3px;
@@ -78,11 +77,12 @@
         .search_button:hover {
             background-color: rgb(118, 125, 146);
         }
-        .current_temperature_container {
+        .icon_figures_container {
             display: flex;
             justify-content: center;
+            gap: 90px;
         }
-        .current_temperature_figure_container p {
+        .current_temperature_container {
             display: flex;
             justify-content: center;
         }
@@ -95,21 +95,15 @@
             justify-content: center;
             margin-top: 50px;
         }
-        .icon_figures_container {
+        .current_temperature_figure_container p {
             display: flex;
             justify-content: center;
-            gap: 90px;
         }
         .figures_container {
             display: flex;
             justify-content: center;
             margin-top: 50px;
             gap: 30px;
-        }
-        .figures_container p {
-            display: flex;
-            justify-content: center;
-            font-size: 25px;
         }
         .tempeture_container {
             display: flex;
@@ -121,9 +115,15 @@
             justify-content: center;
             font-size: 25px;
         }
+        .figures_container p {
+            display: flex;
+            justify-content: center;
+            font-size: 25px;
+        }
         .five_day_forecast_container {
             display: flex;
             justify-content: center;
+            margin-top: 50px;
             gap: 100px;
         }
         .weather_tempeture {
@@ -148,6 +148,7 @@
 <body>
     <div class="wrapper">
         <header> <!--헤더 영역 (제목, 검색 영역)-->
+        <header> <!------------------------------------헤더 영역 (제목, 검색 영역)------------------------------------>
             <div class="local_name">
                 <p style="font-size: 60px;">Seoul</p>
             </div>
@@ -159,6 +160,7 @@
             </div>
         </header>
         <main> <!--메인 영역 (본문 영역)-->
+        <main> <!------------------------------------메인 영역 (본문 영역)------------------------------------>
             <div class="current_temperature_container">
                 <div class="current_temperature_figure_container">
                     <p style="font-size: 35px;">Current Temperature</p>
@@ -246,6 +248,7 @@
         </main>
     </div>
     <footer> <!--푸터 영역 (마무리 영역)-->
+    <footer> <!------------------------------------푸터 영역 (마무리 영역)------------------------------------>
         <hr width="500px">
         <div class="introduce_link">
             <div class="instagram_link">
