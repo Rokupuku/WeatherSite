@@ -28,6 +28,15 @@
             }
         }
 
+        @keyframes pullIn {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(50vw, 50vh) scale(0);
+            }
+        }
+
         html, body {
             height: 100%;
             margin: 0;
@@ -39,7 +48,6 @@
             text-align: center;
             color: #fff;
             overflow: hidden;
-            animation: drift 10s linear infinite;
         }
         .stars {
             position: absolute;
@@ -54,7 +62,7 @@
             height: 2px;
             background: white;
             border-radius: 50%;
-            animation: twinkle 2s infinite alternate;
+            animation: twinkle 2s infinite alternate, pullIn 10s linear infinite;
         }
         .content {
             position: relative;
@@ -149,7 +157,7 @@
     <script>
         function createStars() {
             const starsContainer = document.getElementById('stars');
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 200; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 star.style.top = Math.random() * 100 + 'vh';
