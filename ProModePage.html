@@ -1,274 +1,60 @@
 <!DOCTYPE html>
-<html lang = "ko">
+<html lang="ko">
 <head>
-    <meta charset = "UTF-8">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e1b7420c66.js" crossorigin="anonymous"></script>
-    <title>Weather Site</title>
+    <title>Pro Mode</title>
     <style>
         html, body {
             height: 100%;
             margin: 0;
-            background: linear-gradient(to left bottom, lightCyan, skyblue, royalblue);
-            background-size: 400% 400%;
-            animation: backgroundAnimation 7s ease infinite;
-            font-family: "Limelight", serif;
-            font-weight: 100;
-            font-style: normal;
-        }
-        header i, main i {
-            color: white;
-        }
-        .wrapper {
-            height: auto;
-            min-height: 100%;
-            padding-bottom: 50px;
-        }
-        footer {
-            height: 50px;
-            position: relative;
-            transform: translateY(-100%);
-        }
-        @keyframes backgroundAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-        .local_name {
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            font-family: "Roboto", sans-serif;
             display: flex;
             justify-content: center;
-            position: relative;
-            top: 50px;
+            align-items: center;
+            text-align: center;
+            color: #ecf0f1;
         }
-        hr {
-            height: 3px;
-            background-color: black;
-            border: 0;
-        }
-        .search_container {
-            display: flex;
-            justify-content: center;
-            padding: 35px;
-        }
-        .search_input {
+        .content {
+            max-width: 800px;
             padding: 20px;
-            font-size: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px 0 0 5px;
-            width: 450px;
-            outline: none;
+            background-color: rgba(44, 62, 80, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .search_button {
+        h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        p {
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        .exit_mode_button {
             padding: 10px 20px;
             font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 0 5px 5px 0;
-            background-color: black;
+            border: none;
+            border-radius: 5px;
+            background-color: #e74c3c;
             cursor: pointer;
+            color: white;
+            transition: background-color 0.3s ease;
         }
-        .search_button:hover {
-            background-color: rgb(118, 125, 146);
-        }
-        .current_temperature_container {
-            display: flex;
-            justify-content: center;
-        }
-        .current_temperature_figure_container p {
-            display: flex;
-            justify-content: center;
-        }
-        .current_temperature {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-        .current_weather_icon_temperature_container {
-            display: flex;
-            justify-content: center;
-            margin-top: 50px;
-        }
-        .icon_figures_container {
-            display: flex;
-            justify-content: center;
-            gap: 90px;
-        }
-        .figures_container {
-            display: flex;
-            justify-content: center;
-            margin-top: 50px;
-            gap: 30px;
-        }
-        .figures_container p {
-            display: flex;
-            justify-content: center;
-            font-size: 25px;
-        }
-        .temperature_container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        .temperature_container p {
-            display: flex;
-            justify-content: center;
-            font-size: 25px;
-        }
-        .five_day_forecast_container {
-            display: flex;
-            justify-content: center;
-            gap: 100px;
-        }
-        .weather_temperature {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            line-height: 10px;
-            gap: 10px;
-        }
-        .weather_icon {
-            display: flex;
-            justify-content: center;
-            margin-top: 25px;
-        }
-        .introduce_link {
-            display: flex;
-            justify-content: center;
-            gap: 100px;
+        .exit_mode_button:hover {
+            background-color: #c0392b;
         }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <header> <!--헤더 영역 (제목, 검색 영역)-->
-            <div class="local_name">
-                <p style="font-size: 60px;">Seoul</p>
-            </div>
-            <div>
-                <nav class="search_container">
-                    <input type="text" class="search_input" placeholder="Search">
-                    <button type="submit" class="search_button">
-                        <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
-                    </button>
-                </nav>
-            </div>
-        </header>
-        <main> <!--메인 영역 (본문 영역)-->
-            <div class="current_temperature_container">
-                <div class="current_temperature_figure_container">
-                    <p style="font-size: 35px;">Current Temperature</p>
-                    <p class="current_temperature" style="font-size: 100px;">22°C</p>
-                </div>
-            </div>
-            <div class="icon_figures_container">
-                <div class="current_weather_icon_temperature_container">
-                    <div class="current_weather_icon">
-                        <i class="fa-sharp fa-solid fa-sun fa-7x"></i>
-                        <div class="temperature_container">
-                            <p class="highest temperature" style="color: white;">25°C</p>
-                            <p class="lowest temperature" style="color: rgb(99, 96, 96)">15°C</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="figures_container">
-                    <div class="humidity_container">
-                        <p>Humidity</p>
-                        <p class="humidity">50%</p>
-                    </div>
-                    <div class="rainfall_container">
-                        <p>Rainfall</p>
-                        <p class="rainfall">0mm</p>
-                    </div>
-                </div>
-            </div>
-            <div class="five_day_forecast_container">
-                <div class="one_day">
-                    <h1>1 day</h1>
-                    <hr>
-                    <div class="weather_icon">
-                        <i class="fa-solid fa-sun fa-5x"></i>
-                    </div>
-                    <div class="weather_temperature">
-                        <p class="one_day_highest_temperature" style="font-size: 30px; color: white">25°C</p>
-                        <p class="one_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">15°C</p>
-                    </div>
-                </div>
-                <div class="two_day">
-                    <h1>2 day</h1>
-                    <hr>
-                    <div class="weather_icon">
-                        <i class="fa-solid fa-cloud-sun fa-5x"></i>
-                    </div>
-                    <div class="weather_temperature">
-                        <p class="two_day_highest_temperature" style="font-size: 30px; color: white">15°C</p>
-                        <p class="two_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">8°C</p>
-                    </div>
-                </div>
-                <div class="three_day">
-                    <h1>3 day</h1>
-                    <hr>
-                    <div class="weather_icon">
-                        <i class="fa-solid fa-cloud-sun fa-5x"></i>
-                    </div>
-                    <div class="weather_temperature">
-                        <p class="three_day_highest_temperature" style="font-size: 30px; color: white">14°C</p>
-                        <p class="three_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">7°C</p>
-                    </div>
-                </div>
-                <div class="four_day">
-                    <h1>4 day</h1>
-                    <hr>
-                    <div class="weather_icon">
-                        <i class="fa-solid fa-cloud-showers-heavy fa-5x"></i>
-                    </div>
-                    <div class="weather_temperature">
-                        <p class="four_day_highest_temperature" style="font-size: 30px; color: white">10°C</p>
-                        <p class="four_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">6°C</p>
-                    </div>
-                </div>
-                <div class="five_day">
-                    <h1>5 day</h1>
-                    <hr>
-                    <div class="weather_icon">
-                        <i class="fa-solid fa-snowflake fa-5x"></i>
-                    </div>
-                    <div class="weather_temperature">
-                        <p class="five_day_highest_temperature" style="font-size: 30px; color: white">0°C</p>
-                        <p class="five_day_lowest_temperature" style="font-size: 30px; color: rgb(99, 96, 96)">-3°C</p>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <div class="content">
+        <h1>Pro Mode Page</h1>
+        <p>이 페이지는 프로페셔널한 사용자들을 위한 특별한 기능을 제공합니다.</p>
+        <button class="exit_mode_button" onclick="location.href='index.html'">Exit Mode</button>
     </div>
-    <footer> <!--푸터 영역 (참조 영역)-->
-        <hr width="500px">
-        <div class="introduce_link">
-            <div class="instagram_link">
-                <a href="https://www.instagram.com/e002zz/">
-                    <i class="fa-brands fa-instagram fa-2x" style="color: black;"></i>
-                </a>
-            </div>
-            <div class="youtube_link">
-                <a href="https://www.youtube.com">
-                    <i class="fa-brands fa-youtube fa-2x" style="color: black;"></i>
-                </a>
-            </div>
-            <div class="github_link">
-                <a href="https://github.com/Rokupuku">
-                    <i class="fa-brands fa-github fa-2x" style="color: black;"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
-    <script>
-       
-    </script>
 </body>
 </html>
