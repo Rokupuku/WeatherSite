@@ -12,6 +12,10 @@ body {
     background-size: 400% 400%;
     animation: backgroundAnimation 7s ease infinite;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* 간단한 배경 애니메이션 */
@@ -48,6 +52,18 @@ body {
 
 .search_button:hover {
     background-color: rgb(118, 125, 146);
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.introduce_link {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
 }
 
 /* (추가적인 스타일들은 필요에 따라 작성) */ 
