@@ -1,0 +1,219 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-image: url('images/korea-map.jpg'); /* 한반도 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    font-family: 'Limelight', serif;
+    font-weight: 100;
+    font-style: normal;
+    overflow: hidden; /* 스크롤바 숨기기 */
+}
+header i, main i {
+    color: white;
+}
+.wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+    backdrop-filter: blur(5px); /* 배경 흐리게 */
+    transition: backdrop-filter 0.5s ease, transform 2s ease; /* 흐림 및 확대 효과 전환 */
+}
+.background-blur {
+    backdrop-filter: blur(15px); /* 더 흐리게 */
+    transform: scale(1.5); /* 배경 확대 */
+}
+footer {
+    height: 50px;
+    position: relative;
+    transform: translateY(-100%);
+}
+@keyframes moveToLocation {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.5) translate(-10%, -10%);
+    }
+}
+.location-animation {
+    animation: moveToLocation 2s forwards;
+}
+.local_name {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 50px;
+}
+hr {
+    height: 3px;
+    background-color: black;
+    border: 0;
+}
+.search_container {
+    display: flex;
+    justify-content: center;
+    padding: 20px; /* 간격 조정 */
+}
+.search_input {
+    padding: 20px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 450px;
+    outline: none;
+}
+.search_button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+}
+.search_button:hover {
+    background-color: rgb(118, 125, 146);
+}
+.pro_mode_button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: darkorange;
+    cursor: pointer;
+    color: white;
+}
+.pro_mode_button:hover {
+    background-color: orangered;
+}
+.current_temperature_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* 간격 조정 */
+}
+.current_temperature_figure_container p {
+    display: flex;
+    justify-content: center;
+}
+.current_temperature {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.current_weather_icon_temperature_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    text-align: center;
+}
+.icon_figures_container {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+}
+.figures_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+.figures_container p {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+.temperature_container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+.temperature_container p {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+.five_day_forecast_container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+.weather_temperature {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    line-height: 10px;
+    gap: 10px;
+}
+.weather_icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+.introduce_link {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.centered-flex {
+    display: flex;
+    justify-content: center;
+}
+.text-center {
+    text-align: center;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .search_input {
+        width: 300px;
+        font-size: 16px;
+    }
+    .search_button, .pro_mode_button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .current_temperature_figure_container p {
+        font-size: 28px;
+    }
+    .current_temperature {
+        font-size: 80px;
+    }
+    .weather_temperature p {
+        font-size: 24px;
+    }
+    .five_day_forecast_container {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search_input {
+        width: 200px;
+        font-size: 14px;
+    }
+    .search_button, .pro_mode_button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    .current_temperature_figure_container p {
+        font-size: 24px;
+    }
+    .current_temperature {
+        font-size: 60px;
+    }
+    .weather_temperature p {
+        font-size: 20px;
+    }
+    .five_day_forecast_container {
+        flex-direction: column;
+        align-items: center;
+    }
+} 
